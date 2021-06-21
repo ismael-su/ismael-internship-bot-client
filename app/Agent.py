@@ -1,4 +1,4 @@
-from typing import Any, Dict
+from typing import Any, Dict, List
 from uuid import UUID
 
 from transformers import BlenderbotForConditionalGeneration, BlenderbotTokenizer
@@ -29,7 +29,7 @@ class Agent:
     chat = ''
     chat_history_ids: Any
     bot_input_ids: Any
-    human_readable_chat_history: list[dict[str, str]] = []
+    human_readable_chat_history: List[Dict[str, str]] = []
     tokenizer: BlenderbotTokenizer
     model: Any
 
