@@ -13,6 +13,7 @@ poetry run uvicorn app.main:app --reload
 
 ### Make an Agent join a chat
 
+
 send an HTTP post request to this server at the endpoint ``agents/init``
 the request body structure : 
 ````json
