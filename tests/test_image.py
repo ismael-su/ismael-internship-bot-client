@@ -9,7 +9,7 @@ from app.main import app
 from tests.utils import (
     CONTAINER_NAME,
     get_logs,
-    get_response_text1,
+    get_response_home,
     remove_previous_container,
 )
 client = TestClient(app)
@@ -28,7 +28,7 @@ def verify_container(container: DockerClient, response_text: str) -> None:
 
 def test_defaults() -> None:
     image = "ghcr.io/ismael-su/ismael-internship-bot-client:dev"
-    response_text = get_response_text1()
+    response_text = get_response_home()
     sleep_time = int(os.getenv("SLEEP_TIME", 1))
     remove_previous_container(docker_client)
     container = docker_client.containers.run(
