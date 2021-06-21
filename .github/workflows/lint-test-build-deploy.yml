@@ -18,7 +18,7 @@ jobs:
           python-version: "3.8"
 
       - name: Install Dependencies
-        run:  pip install poetry
+        run:  pip install poetry pytest
 
       - name: Install Dependencies
         run: poetry install
