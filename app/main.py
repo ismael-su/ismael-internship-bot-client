@@ -1,8 +1,6 @@
 import asyncio
-import json
 import uuid
-import uvicorn
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Dict
@@ -47,6 +45,17 @@ async def init_agent(r_data: GetAgent):
     running_agents[uid] = agent
     print('running agents : ', running_agents)
     return agent.to_dict()
+
+
+@app.post('/agents/stop')
+async def init_agent():
+    global running_agents
+    for key in running_agents:
+        a = running_agents[key]
+        a.sio.disconnect()
+
+    running_agents.clear()
+    return 200
 
 
 def generate_uuid():

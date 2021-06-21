@@ -22,7 +22,9 @@ def verify_container(container: DockerClient, response_text: str) -> None:
     data = response.json()
     assert data == response_text
     logs = get_logs(container)
-    assert "Application startup complete." in logs
+    print(logs)
+    # assert "Application startup complete." in logs
+    assert "Uvicorn running on http://0.0.0.0:8000" in logs
     assert "Started reloader process" in logs
 
 

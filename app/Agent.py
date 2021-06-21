@@ -46,7 +46,7 @@ class Agent:
         self.init_handlers()
 
     async def connect(self):
-        await self.sio.connect(self.chat_server_host, socketio_path="ws/socket.io", wait_timeout=60000)
+        await self.sio.connect(self.chat_server_host, wait_timeout=60000)
         print("my sid is", self.sio.sid)
 
     async def join_chat(self):
